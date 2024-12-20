@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.TreeSet;
 import java.util.*;
-public class DepartementHashSet implements IDepartement<Departement> {
+public class DepartmentHashSet implements IDepartement<Departement> {
     Set<Departement> Deps = new HashSet<>();
     public void ajouterDepartement(Departement departement) {
         Deps.add(departement);
@@ -40,4 +40,5 @@ public class DepartementHashSet implements IDepartement<Departement> {
 
         return new TreeSet<>(Deps);
     }
+
 }
