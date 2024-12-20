@@ -19,7 +19,7 @@ public class Animal {
     }
 
     @Override
-    public String toString() {
+    public  String toString() {
         return "family: " + family + ", Name: " + name + ", Age: " + age + ", is Mammal: " + isMammal +"\n";
     }
 

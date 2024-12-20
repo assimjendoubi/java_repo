@@ -24,7 +24,7 @@ public class Main {
         myZoo.nbrCages = 12;
         System.out.println("the tn.esprit.gestionzoo.entities.Zoo is :  \n" + myZoo);*/
 
-        Animal lion = new Animal("big lions" , "myLion" , 12 , true);
+       /* Animal lion = new Animal("big lions" , "myLion" , 12 , true);
         Animal tigre = new Animal("big Tigre" , "myTigre" , 3 , true);
         Animal giraffe = new Animal("big Giraffe" , "myGiraffe" , 5 , true);
         Animal dog = new Animal("big dog" , "myDog" , 9 , true);
@@ -89,9 +89,30 @@ public class Main {
         System.out.println("\ninstruction 8 : on remarque l'affichage de l'adresse (adresse du pointage) du zoo car on a pas redifinie la methode to string ");
 */
 
+        Aquatic aquatic = new Aquatic();
+        Terrestrial terrestrial = new Terrestrial();
+        Dolphin dolphin = new Dolphin();
+        Penguin penguin = new Penguin();
+
+        Aquatic aquatic2 = new Aquatic("big fish" , "myFish" , 12 , true,"mer" );
+        Terrestrial terrestrial2 = new Terrestrial("big lions" , "myLion" , 12 , true,12);
+        Dolphin dolphin2 = new Dolphin("big dauphin" , "myDauphin" , 12 , true, "mer" , 12);
+        Penguin penguin2 = new Penguin("big penguin" , "penguin" , 12 , true , "mer" , 5);
+
+        System.out.println(aquatic2.toString());
+        System.out.println("*********************************");
+        System.out.println( terrestrial2.toString());
+        System.out.println("*********************************");
+        System.out.println(dolphin2.toString());
+        System.out.println("*********************************");
+        System.out.println(penguin2.toString());
 
 
+        System.out.println(aquatic.toString());
 
+        dolphin2.swim();
+        aquatic2.swim();
+        penguin2.swim();
 
 
     }
