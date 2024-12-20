@@ -1,5 +1,7 @@
 package tn.esprit.gestionzoo.entities;
 
+import tn.esprit.gestionzoo.exceptions.ZooFullException;
+
 import java.util.Arrays;
 
 public class Zoo {
@@ -7,7 +9,7 @@ public class Zoo {
     protected Animal [] animals ;
     protected String name;
     protected String city ;
-    protected final int nbrCages ;
+    public static final int nbrCages = 3;
     protected int nbAnimal = 0;
     private final int MAX_ANIMALS = 5;
     private Aquatic[] aquaticAnimals;
@@ -57,7 +59,7 @@ public class Zoo {
     }
 
     public Zoo(String name , String city ){
-        this.nbrCages = MAX_ANIMALS;
+        //this.nbrCages = MAX_ANIMALS;
             this.name = name;
             this.city = city ;
             animals = new Animal[nbrCages] ;
@@ -97,19 +99,14 @@ public class Zoo {
         return  "Name of zoo : " + name + " ,the city : " + city + " ,number of cages : " + nbrCages + " ,has as animals : " + Arrays.toString(nameOfAnimals) ;
     }
 
-    public boolean addAnimal(Animal animal){
-        if(this.searchAnimal(animal.name) != -1){
-            System.out.println(animal.name + " est déjà dans le zoo");
-            return false;
+    public void addAnimal(Animal animal) throws ZooFullException {
+        if (searchAnimal(animal.name) != -1)
+            System.out.println("This animal already exist");
+        if (isZooFull()){
+            throw new ZooFullException("The Zoo is full");
         }
-        if (! this.isZooFull()) {
-            animals[nbAnimal] = animal;
-            nbAnimal ++;
-            System.out.println("yes added");
-            return true;
-        } else {
-            return false;
-        }
+        animals[nbAnimal] = animal;
+        nbAnimal++;
     }
 
     public void displayAnimals() {

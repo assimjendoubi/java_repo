@@ -1,5 +1,7 @@
 package tn.esprit.gestionzoo.main;
 import tn.esprit.gestionzoo.entities.*;
+import tn.esprit.gestionzoo.exceptions.InvalidAgeException;
+import tn.esprit.gestionzoo.exceptions.ZooFullException;
 
 import javax.print.attribute.standard.PrinterMoreInfoManufacturer;
 
@@ -91,14 +93,14 @@ public class Main {
         System.out.println("\ninstruction 8 : on remarque l'affichage de l'adresse (adresse du pointage) du zoo car on a pas redifinie la methode to string ");
 */
 
-        Animal animal = new Animal();
+       /* Animal animal = new Animal();
         //Aquatic aquatic = new Aquatic();
         Terrestrial terrestrial = new Terrestrial();
         Dolphin dolphin = new Dolphin();
-        Penguin penguin = new Penguin();
+        Penguin penguin = new Penguin();*/
         Zoo toZoo = new Zoo("california zoo","california");
         //Aquatic aquatic2 = new Aquatic("big fish" , "myFish" , 12 , true,"mer" );
-        Terrestrial terrestrial2 = new Terrestrial("big lions" , "myLion" , 12 , true,12);
+        /*Terrestrial terrestrial2 = new Terrestrial("big lions" , "myLion" , 12 , true,12);
         Dolphin dolphin2 = new Dolphin("big dauphin" , "myDauphin" , 12 , true, "mer" , 12);
         Penguin penguin2 = new Penguin("big penguin" , "penguin2" , 12 , true , "mer" , 5);
         Penguin penguin3 = new Penguin("big penguin3" , "penguin3" , 12 , true , "mer" , 10);
@@ -128,8 +130,36 @@ public class Main {
         System.out.println(toZoo.maxPenguinSwimmingDepth());
         toZoo.displayNumberOfAquaticsByType();
         System.out.println(penguin2.equals(penguin2));
-        System.out.println(penguin3.equals(penguin2));
+        System.out.println(penguin3.equals(penguin2));*/
+
+        Animal lion = new Animal("big lions" , "myLion" , 12 , true);
+        Animal tigre = new Animal("big Tigre" , "myTigre" , 3 , true);
+        Animal giraffe = new Animal("big Giraffe" , "myGiraffe" , 5 , true);
+        Animal dog = new Animal("big dog" , "myDog" , 9 , true);
+        Animal cat = new Animal("big cat" , "mycat" , 9 , true);
+        Animal cow = new Animal("big cow" , "myCow" , 9 , true);
+
+        try {
+            lion.setAge(8);
+        } catch (InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            toZoo.addAnimal(lion);
+        } catch (ZooFullException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println(toZoo.getName() + " contient : " + toZoo.getNbAnimal() + " animaux");
+        }
 
 
+        try {
+            toZoo.addAnimal(tigre);
+        } catch (ZooFullException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println(toZoo.getName() + " contient " + toZoo.getNbAnimal() + " animaux");
+        }
     }
 }
