@@ -10,6 +10,10 @@ public class Zoo {
     protected final int nbrCages ;
     protected int nbAnimal = 0;
     private final int MAX_ANIMALS = 5;
+    private Aquatic[] aquaticAnimals;
+    public static int counter;
+
+
 
 
     public Animal[] getAnimals() {
@@ -54,20 +58,16 @@ public class Zoo {
 
     public Zoo(String name , String city ){
         this.nbrCages = MAX_ANIMALS;
-        if(name.isEmpty()){
-            System.out.println("Nom est vide ! donner autre");
-        } else
-        {
-
             this.name = name;
             this.city = city ;
             animals = new Animal[nbrCages] ;
             nbAnimal = 0;
+            this.aquaticAnimals = new Aquatic[10] ;
         }
 
 
 
-    }
+
 
     @Override
     public String toString(){
@@ -170,5 +170,43 @@ public class Zoo {
         }
     }
 
+    public void addAquaticAnimals(Aquatic animal){
 
+            this.aquaticAnimals[counter]=animal;
+            counter++;
+            System.out.println("aquatic added");
+        }
+
+    public float maxPenguinSwimmingDepth(){
+        float maxProfond = 0f;
+        for(Animal aqAnimal : aquaticAnimals){
+            if(aqAnimal != null){
+                if(aqAnimal instanceof Penguin){
+                    if (maxProfond < ((Penguin)aqAnimal).getSwimmingDepth()){
+                        maxProfond = ((Penguin)aqAnimal).getSwimmingDepth();
+                    }
+                }
+            }
+
+        }
+        return maxProfond;
+    }
+
+    public void displayNumberOfAquaticsByType(){
+        int nbDolphin = 0;
+        int nbPenguin = 0;
+        for(Animal aqAnimal : aquaticAnimals){
+            if(aqAnimal != null) {
+                if (aqAnimal instanceof Penguin) {
+                    nbPenguin++;
+                }else {
+                    nbDolphin++;
+                }
+            }
+        }
+        System.out.println("Number of dolphins : " + nbDolphin +"\nNumber of penguins : " + nbPenguin);
+
+    }
 }
+
+

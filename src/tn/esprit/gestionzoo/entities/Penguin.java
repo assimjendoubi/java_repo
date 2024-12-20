@@ -14,4 +14,13 @@ public class Penguin extends Aquatic {
         return super.toString() +" swimmingDepth: " + swimmingDepth;
 
     }
+
+    @Override
+    public void swim() {
+        System.out.println("This penguin is swimming");
+    }
+
+    public float getSwimmingDepth() {
+        return swimmingDepth;
+    }
 }

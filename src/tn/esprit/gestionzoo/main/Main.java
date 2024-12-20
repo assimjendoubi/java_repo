@@ -1,6 +1,8 @@
 package tn.esprit.gestionzoo.main;
 import tn.esprit.gestionzoo.entities.*;
 
+import javax.print.attribute.standard.PrinterMoreInfoManufacturer;
+
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -89,17 +91,20 @@ public class Main {
         System.out.println("\ninstruction 8 : on remarque l'affichage de l'adresse (adresse du pointage) du zoo car on a pas redifinie la methode to string ");
 */
 
-        Aquatic aquatic = new Aquatic();
+        Animal animal = new Animal();
+        //Aquatic aquatic = new Aquatic();
         Terrestrial terrestrial = new Terrestrial();
         Dolphin dolphin = new Dolphin();
         Penguin penguin = new Penguin();
-
-        Aquatic aquatic2 = new Aquatic("big fish" , "myFish" , 12 , true,"mer" );
+        Zoo toZoo = new Zoo("california zoo","california");
+        //Aquatic aquatic2 = new Aquatic("big fish" , "myFish" , 12 , true,"mer" );
         Terrestrial terrestrial2 = new Terrestrial("big lions" , "myLion" , 12 , true,12);
         Dolphin dolphin2 = new Dolphin("big dauphin" , "myDauphin" , 12 , true, "mer" , 12);
-        Penguin penguin2 = new Penguin("big penguin" , "penguin" , 12 , true , "mer" , 5);
+        Penguin penguin2 = new Penguin("big penguin" , "penguin2" , 12 , true , "mer" , 5);
+        Penguin penguin3 = new Penguin("big penguin3" , "penguin3" , 12 , true , "mer" , 10);
+        Penguin penguin4 = new Penguin("big penguin4" , "penguin4" , 12 , true , "mer" , 18);
 
-        System.out.println(aquatic2.toString());
+        //System.out.println(aquatic2.toString());
         System.out.println("*********************************");
         System.out.println( terrestrial2.toString());
         System.out.println("*********************************");
@@ -108,11 +113,22 @@ public class Main {
         System.out.println(penguin2.toString());
 
 
-        System.out.println(aquatic.toString());
+        //System.out.println(aquatic.toString());
 
         dolphin2.swim();
-        aquatic2.swim();
+        //aquatic2.swim();
         penguin2.swim();
+        //toZoo.addAquaticAnimals(aquatic2);
+        toZoo.addAquaticAnimals(dolphin2);
+        toZoo.addAquaticAnimals(penguin2);
+        toZoo.addAquaticAnimals(penguin3);
+        toZoo.addAquaticAnimals(penguin4);
+
+        //toZoo.addAquaticAnimals(terrestrial2);
+        System.out.println(toZoo.maxPenguinSwimmingDepth());
+        toZoo.displayNumberOfAquaticsByType();
+        System.out.println(penguin2.equals(penguin2));
+        System.out.println(penguin3.equals(penguin2));
 
 
     }
