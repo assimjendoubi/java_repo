@@ -73,7 +73,7 @@ public class employee {
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", depName='" + depName + '\'' +
-                ", grade=" + grade +
+                ", grade =: " + grade +
                 '}';
     }
 
